@@ -23,7 +23,7 @@ Tab:AddToggle({
 })
 Tab:AddLabel("anticheat bypass ez")
 Tab:AddToggle({
-	Name = "Anticheat fucker",
+	Name = "Anticheat Bypass",
 	Default = false,
 	Flag = "noac"
 })
@@ -95,6 +95,7 @@ Tab3:AddButton({
 		  end)
   	end    
 })
+Tab:AddLabel("kills rake but dont give points")
 Tab3:AddButton({
 	Name = "Kill Rake",
 	Callback = function()
@@ -113,6 +114,7 @@ Tab3:AddButton({
 		  end)
   	end    
 })
+Tab:AddLabel("this will makes rake moans sound 😳")
 Tab3:AddToggle({
 	Name = "Rake Godmode",
 	Default = false,
