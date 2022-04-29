@@ -128,7 +128,7 @@ Tab3:AddButton({
 		  end)
   	end    
 })
-Tab:AddLabel("this will makes rake moans sound 😳")
+Tab3:AddLabel("this will makes rake moans sound 😳")
 Tab3:AddToggle({
 	Name = "Rake Godmode",
 	Default = false,
