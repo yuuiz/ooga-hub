@@ -102,17 +102,9 @@ Tab2:AddTextbox({
 	TextDisappear = true,
 	Callback = function(Value)
 		pcall(function()
-			local int : number = Value
-			if int == nil then
-				OrionLib:MakeNotification({
-					Name = "ERROR!",
-					Content = "type a number",
-					Image = "rbxassetid://4483345998",
-					Time = 5
-				})
-				return
+			if Value:IsA('Number') then
+				print(Value)
 			end
-			print(int)
 		end)
 	end	  
 })
