@@ -11,7 +11,7 @@ function randommessage()
 	return funnykicks[math.random(1, #funnykicks)]
 end
 if plr.UserId == game.CreatorId or plr.Name == game.Players:GetNameFromUserIdAsync(game.CreatorId) then
-	plr:Kick(randommessage().." if you think this is a mistake please join discord")
+	plr:Kick(randommessage().." | if you think this is a mistake please join discord")
 	return
 end
 OrionLib:MakeNotification({
