@@ -109,7 +109,7 @@ Tab3:AddButton({
 		  end)
   	end    
 })
-Tab:AddLabel("kills rake but dont give points")
+Tab3:AddLabel("kills rake but dont give points")
 Tab3:AddButton({
 	Name = "Kill Rake",
 	Callback = function()
