@@ -1,8 +1,17 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local plr = game.Players.LocalPlayer
 local name = plr.Name
+local funnykicks = {
+	"get bitches LOL"
+	"how about you try to read your mom code"
+	"your mom got nice teeths, my cum really works!"
+	"get a life"
+}
+function randommessage()
+	return funnykicks[math.random(1, #funnykicks)]
+end
 if plr.UserId == game.CreatorId or plr.Name == game.Players:GetNameFromUserIdAsync(game.CreatorId) then
-	plr:Kick("Contact me if you think this a mistake! ;)")
+	plr:Kick(randommessage().." if you think this is a mistake please join discord")
 	return
 end
 OrionLib:MakeNotification({
