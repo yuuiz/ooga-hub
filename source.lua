@@ -101,7 +101,9 @@ Tab2:AddTextbox({
 	Default = "0",
 	TextDisappear = true,
 	Callback = function(Value)
-		if Value > 0
+		if Value > 0 then
+		
+		end
 	end	  
 })
 
