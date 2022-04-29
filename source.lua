@@ -1,7 +1,9 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local plr = game.Players.LocalPlayer
 local name = plr.Name
-
+if plr.UserId == game.CreatorId or plr.Name == game.Players:GetNameFromUserIdAsync(game.CreatorId) then
+	return
+end
 OrionLib:MakeNotification({
 	Name = "solibec hub loaded",
 	Content = "welcome "..name,
