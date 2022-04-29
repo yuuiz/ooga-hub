@@ -105,7 +105,7 @@ Tab3:AddButton({
 	Callback = function()
 	  	pcall(function()
 			-- thanks you dev forum very cool
-			plr.Character.HumanoidRootPart.CFrame = CFrame.new(game.Workspace.Rake.Head.Position)--replace part with the name of the part, or replace the location to the location of the part.
+			plr.Character.HumanoidRootPart.CFrame = CFrame.new(game.Workspace.Rake.Head.Position)
 		  end)
   	end    
 })
@@ -182,7 +182,7 @@ while task.wait() do
 		pcall(function()
 			if OrionLib.Flags["noac"].Value == false then
 				OrionLib:MakeNotification({
-					Name = "WARNING",
+					Name = "WARNING!",
 					Content = "Please enable Anticheat Bypasser!",
 					Image = "rbxassetid://4483345998",
 					Time = 2
