@@ -56,6 +56,7 @@ Tab:AddButton({
 	Name = "Get All Tools",
 	Callback = function()
 	  	pcall(function()
+			-- Credit to the guy, he used my inf points cheat for this so-
 			for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.ShopGui.ShopTools:GetChildren()) do
 				local args = {
 					[1] = v
