@@ -33,7 +33,7 @@ Tab:AddToggle({
 	Default = false,
 	Flag = "infcash"
 })
-Tab:AddLabel("anticheat bypass ez")
+Tab:AddLabel("bypasses anticheat so hard 💀")
 Tab:AddToggle({
 	Name = "Anticheat Bypass",
 	Default = false,
