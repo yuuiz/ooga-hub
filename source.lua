@@ -2,9 +2,9 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local plr = game.Players.LocalPlayer
 local name = plr.Name
 local funnykicks = {
-	"get bitches LOL"
-	"how about you try to read your mom code"
-	"your mom got nice teeths, my cum really works!"
+	"get bitches LOL",
+	"how about you try to read your mom code",
+	"your mom got nice teeths, my cum really works!",
 	"get a life"
 }
 function randommessage()
