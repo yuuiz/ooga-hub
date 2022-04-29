@@ -95,15 +95,25 @@ Tab2:AddSlider({
 	ValueName = "power",
 	Flag = "jumppower"
 })
-Tab2:AddLabel("make sure to use anticheat bypasses or else you get kicked")
+Tab2:AddLabel("required vest - suggested to use inf points")
 Tab2:AddTextbox({
-	Name = "Textbox",
+	Name = "Heal",
 	Default = "0",
 	TextDisappear = true,
 	Callback = function(Value)
-		if Value > 0 then
-		
-		end
+		pcall(function()
+			local int : number = Value
+			if int == nil then
+				OrionLib:MakeNotification({
+					Name = "ERROR!",
+					Content = "type a number",
+					Image = "rbxassetid://4483345998",
+					Time = 5
+				})
+				return
+			end
+			print(int)
+		end)
 	end	  
 })
 
