@@ -2,6 +2,7 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local plr = game.Players.LocalPlayer
 local name = plr.Name
 if plr.UserId == game.CreatorId or plr.Name == game.Players:GetNameFromUserIdAsync(game.CreatorId) then
+	plr:Kick("Contact me if you think this a mistake! ;)")
 	return
 end
 OrionLib:MakeNotification({
