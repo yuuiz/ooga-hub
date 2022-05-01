@@ -1,19 +1,9 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local plr = game.Players.LocalPlayer
 local name = plr.Name
--- bad creator anticheat af
-local funnykicks = {
-	"get bitches LOL",
-	"how about you try to read your mom code",
-	"your mom got nice teeths, my cum really works!",
-	"try to crack and your a clown🤡",
-	"get a life"
-}
-function randommessage()
-	return funnykicks[math.random(1, #funnykicks)]
-end
+
 if plr.UserId == game.CreatorId or plr.Name == game.Players:GetNameFromUserIdAsync(game.CreatorId) then
-	plr:Kick(randommessage().." | if you think this is a mistake please join discord")
+	while true do end
 	return
 end
 OrionLib:MakeNotification({
@@ -53,6 +43,27 @@ Tab:AddToggle({
 	Default = false,
 	Flag = "alwaysrun"
 })
+Tab:AddLabel("Server thinks your alive, so you could get item from hour")
+Tab:AddToggle({
+	Name = "fake-survive",
+	Default = false,
+	Callback = function(Value)
+	  	pcall(function()
+			local script : LocalScript = plr.Character.SurvivedClient
+			script.Disabled = Value
+		  end)
+  	end    
+})
+Tab:AddLabel("warns you if an admin is in-game")
+Tab:AddToggle({
+	Name = "anti-admin",
+	Default = false,
+	Callback = function(Value)
+	  	pcall(function()
+			
+		  end)
+  	end    
+})
 Tab:AddLabel("speaks for itself, and does not put you in debt lol")
 Tab:AddButton({
 	Name = "Get All Tools",
@@ -66,17 +77,6 @@ Tab:AddButton({
 				
 				game:GetService("ReplicatedStorage").ShopEvents.Buy:FireServer(unpack(args))
 			end
-		  end)
-  	end    
-})
-Tab:AddLabel("Server thinks your alive, so you could get item from hour")
-Tab:AddToggle({
-	Name = "fake-survive",
-	Default = false,
-	Callback = function(Value)
-	  	pcall(function()
-			local script : LocalScript = plr.Character.SurvivedClient
-			script.Disabled = Value
 		  end)
   	end    
 })
