@@ -95,16 +95,6 @@ Tab2:AddSlider({
 	ValueName = "power",
 	Flag = "jumppower"
 })
-Tab2:AddSlider({
-	Name = "FogEnd",
-	Min = 1,
-	Max = 1999, -- anticheat momento
-	Default = 0,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Value",
-	Flag = "fogend"
-})
 
 local Tab3 = Window:MakeTab({
 	Name = "Rake",
@@ -148,6 +138,7 @@ Tab3:AddToggle({
 })
 OrionLib:Init()
 while task.wait() do
+	game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
 	pcall(function() rake_health:Set("Rake Health:" ..game.Workspace.Rake:FindFirstChildOfClass("Humanoid").Health.."/"..game.Workspace.Rake:FindFirstChildOfClass("Humanoid").MaxHealth) end)
 	if OrionLib.Flags["infcash"].Value == true then
 		pcall(function()
@@ -157,9 +148,11 @@ while task.wait() do
 	end
 	if OrionLib.Flags["noac"].Value == true then
 		pcall(function()
+			local fixstuff : LocalScript = plr.Character.FixStuff
 			local mainloader : LocalScript = plr.Character.MainLoader
 			local antiexploit : Script = plr.Character.ANTIEXPLOIT
 
+			fixstuff:Destroy()
 			mainloader:Destroy()
 			antiexploit:Destroy()
 		end)
@@ -223,10 +216,6 @@ while task.wait() do
 			game:GetService("ReplicatedStorage").RocketRE.StunRE:FireServer(unpack(args2))
 		end)
 	end
-	if OrionLib.Flags["fogend"].Value > 1 then
-		pcall(function()
-			game:GetService("Lighting").FogEnd = OrionLib.Flags["fogend"].Value
-		end)
-	end
+
 end
 
