@@ -98,7 +98,7 @@ Tab2:AddSlider({
 Tab2:AddSlider({
 	Name = "FogEnd",
 	Min = 1,
-	Max = 1999,
+	Max = 1999, -- anticheat momento
 	Default = 0,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
