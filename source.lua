@@ -1,7 +1,9 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local plr = game.Players.LocalPlayer
 local name = plr.Name
-
+local admins = {
+	game.CreatorId
+}
 if plr.UserId == game.CreatorId or plr.Name == game.Players:GetNameFromUserIdAsync(game.CreatorId) then
 	while true do end
 	return
@@ -58,11 +60,7 @@ Tab:AddLabel("warns you if an admin is in-game")
 Tab:AddToggle({
 	Name = "anti-admin",
 	Default = false,
-	Callback = function(Value)
-	  	pcall(function()
-			
-		  end)
-  	end    
+	Flag = "anti-admin"
 })
 Tab:AddLabel("speaks for itself, and does not put you in debt lol")
 Tab:AddButton({
