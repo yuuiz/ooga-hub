@@ -101,7 +101,7 @@ local Tab3 = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-local rake_health = Tab3:AddLabel("cum balls")
+local rake_health = Tab3:AddLabel("-- LOADING --")
 Tab3:AddButton({
 	Name = "Teleport To Rake",
 	Callback = function()
@@ -111,7 +111,7 @@ Tab3:AddButton({
 		  end)
   	end    
 })
-Tab3:AddLabel("kills rake but dont give points")
+Tab3:AddLabel("explains itself")
 Tab3:AddButton({
 	Name = "Kill Rake",
 	Callback = function()
@@ -144,7 +144,7 @@ Tab3:AddButton({
 			local args = {
 				[1] = workspace.Rake.HumanoidRootPart,
 				[2] = workspace.Rake.Humanoid,
-				[3] = "-"..999999999,
+				[3] = -inf,
 				[4] = "AAKKAKKAAKKA112121",
 				[5] = "ALALALAQAQAQ1+!'SA",
 				[6] = "TESTMQMQOQZP11A"
