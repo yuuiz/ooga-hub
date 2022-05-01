@@ -136,15 +136,15 @@ Tab3:AddToggle({
 	Default = false,
 	Flag = "rake_godmode"
 })
-Tab3:AddLabel("godmode but no sound 😭")
+Tab3:AddLabel("heal rake")
 Tab3:AddButton({
-	Name = "Inf HP",
+	Name = "hael",
 	Callback = function()
 	  	pcall(function()
 			local args = {
 				[1] = workspace.Rake.HumanoidRootPart,
 				[2] = workspace.Rake.Humanoid,
-				[3] = -inf,
+				[3] = -99999999999999,
 				[4] = "AAKKAKKAAKKA112121",
 				[5] = "ALALALAQAQAQ1+!'SA",
 				[6] = "TESTMQMQOQZP11A"
