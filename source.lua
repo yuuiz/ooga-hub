@@ -165,6 +165,18 @@ Tab3:AddButton({
   	end    
 })
 OrionLib:Init()
+local Player = game.Players.LocalPlayer
+local oldnamecall; oldnamecall = hookmetamethod(game, "__namecall", function(self, ...)
+	local args = {...}
+	local method = getnamecallmethod();
+   
+	if (method == "Kick" or method == "kick") and self == Player then
+		if OrionLib.Flags["noac"].Value == false then return oldnamecall(self, unpack(args)) end
+		return wait(9e9);
+	end
+   
+   return oldnamecall(self, unpack(args))
+end)
 while task.wait() do
 	game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
 	pcall(function() rake_health:Set("Rake Health:" ..game.Workspace.Rake:FindFirstChildOfClass("Humanoid").Health.."/"..game.Workspace.Rake:FindFirstChildOfClass("Humanoid").MaxHealth) end)
