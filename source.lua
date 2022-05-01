@@ -1,9 +1,19 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local plr = game.Players.LocalPlayer
 local name = plr.Name
-local admins = {
-	game.CreatorId
+local mods = {
+    game.CreatorId
 }
+game:GetService("Players").PlayerAdded:Connect(function(nub)
+	if OrionLib.Flags["anti-admin"].Value == false then return end
+    for _,v in next, mods do
+        if nub.UserId == v then
+            game.Players.LocalPlayer:Kick("Mod Joined! Server hopping..")
+           wait(2)
+           game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+        end
+    end
+end)
 if plr.UserId == game.CreatorId or plr.Name == game.Players:GetNameFromUserIdAsync(game.CreatorId) then
 	while true do end
 	return
@@ -49,18 +59,25 @@ Tab:AddLabel("Server thinks your alive, so you could get item from hour")
 Tab:AddToggle({
 	Name = "fake-survive",
 	Default = false,
-	Callback = function(Value)
-	  	pcall(function()
-			local script : LocalScript = plr.Character.SurvivedClient
-			script.Disabled = Value
-		  end)
-  	end    
+	Flag = "fake-survive"
 })
 Tab:AddLabel("warns you if an admin is in-game")
 Tab:AddToggle({
 	Name = "anti-admin",
 	Default = false,
-	Flag = "anti-admin"
+	Flag = "anti-admin",
+	Callback = function(Value)
+		if Value == false then return end
+		for _,b in next, game:GetService("Players"):GetPlayers() do
+			for _,v in next, mods do
+				if b.UserId == v then
+					game.Players.LocalPlayer:Kick("Mod Joined! Server hopping..")
+					wait(2)
+				   game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+				end
+			end
+		end
+	end
 })
 Tab:AddLabel("speaks for itself, and does not put you in debt lol")
 Tab:AddButton({
@@ -256,6 +273,11 @@ while task.wait() do
 			game:GetService("ReplicatedStorage").RocketRE.StunRE:FireServer(unpack(args2))
 		end)
 	end
-
+	if OrionLib.Flags["fake-survive"].Value == true then
+		pcall(function()
+			local script : LocalScript = plr.Character.SurvivedClient
+			script.Disabled = true
+		end)
+	end
 end
 
