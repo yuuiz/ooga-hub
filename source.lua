@@ -119,13 +119,13 @@ Tab3:AddButton({
 			local args = {
 				[1] = workspace.Rake.HumanoidRootPart,
 				[2] = workspace.Rake.Humanoid,
-				[3] = 999999,
+				[3] = 999999999,
 				[4] = "AAKKAKKAAKKA112121",
 				[5] = "ALALALAQAQAQ1+!'SA",
 				[6] = "TESTMQMQOQZP11A"
 			}
 
-			game:GetService("ReplicatedStorage").TaserRE.DamageRE:FireServer(unpack(args))
+			game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))ageRE:FireServer(unpack(args))
 
 		  end)
   	end    
@@ -135,6 +135,25 @@ Tab3:AddToggle({
 	Name = "Rake Godmode",
 	Default = false,
 	Flag = "rake_godmode"
+})
+Tab3:AddLabel("godmode but no sound 😭")
+Tab3:AddButton({
+	Name = "Inf HP",
+	Callback = function()
+	  	pcall(function()
+			local args = {
+				[1] = workspace.Rake.HumanoidRootPart,
+				[2] = workspace.Rake.Humanoid,
+				[3] = "-"..999999999,
+				[4] = "AAKKAKKAAKKA112121",
+				[5] = "ALALALAQAQAQ1+!'SA",
+				[6] = "TESTMQMQOQZP11A"
+			}
+
+			game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))
+
+		  end)
+  	end    
 })
 OrionLib:Init()
 while task.wait() do
