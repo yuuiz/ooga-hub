@@ -125,7 +125,7 @@ Tab3:AddButton({
 				[6] = "TESTMQMQOQZP11A"
 			}
 
-			game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))ageRE:FireServer(unpack(args))
+			game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))
 
 		  end)
   	end    
