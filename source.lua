@@ -69,6 +69,17 @@ Tab:AddButton({
 		  end)
   	end    
 })
+Tab:AddLabel("Server thinks your alive, so you could get item from hour")
+Tab:AddToggle({
+	Name = "fake-survive",
+	Default = false,
+	Callback = function(Value)
+	  	pcall(function()
+			local script : LocalScript = plr.Character.SurvivedClient
+			script.Disabled = Value
+		  end)
+  	end    
+})
 local Tab2 = Window:MakeTab({
 	Name = "Player",
 	Icon = "rbxassetid://4483345998",
