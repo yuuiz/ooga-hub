@@ -95,18 +95,15 @@ Tab2:AddSlider({
 	ValueName = "power",
 	Flag = "jumppower"
 })
-Tab2:AddLabel("required vest - suggested to use inf points")
-Tab2:AddTextbox({
-	Name = "Heal",
-	Default = "0",
-	TextDisappear = true,
-	Callback = function(Value)
-		pcall(function()
-			if Value:IsA('Number') then
-				print(Value)
-			end
-		end)
-	end	  
+Tab2:AddSlider({
+	Name = "FogEnd",
+	Min = 1,
+	Max = 1999,
+	Default = 0,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Value",
+	Flag = "fogend"
 })
 
 local Tab3 = Window:MakeTab({
@@ -224,6 +221,11 @@ while task.wait() do
 			}
 		
 			game:GetService("ReplicatedStorage").RocketRE.StunRE:FireServer(unpack(args2))
+		end)
+	end
+	if OrionLib.Flags["fogend"].Value > 1 then
+		pcall(function()
+			game:GetService("Lighting").FogEnd = OrionLib.Flags["fogend"].Value
 		end)
 	end
 end
