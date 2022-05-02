@@ -1,10 +1,5 @@
-# ooga-hub
-### ooga booga
-### best hub yes
-<<<<<<< HEAD
-### open source
+# HUB
 
-### monke verifed
-=======
-### open-source 🤯
->>>>>>> 61d445fb40ecd4abcd2029ee756168b7e9ff6275
+### Our hub is the best one currently in the game!
+
+### Others hub mostly don't have our features!
