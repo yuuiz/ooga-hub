@@ -1,5 +1,7 @@
 {
     "robloxLsp.diagnostics.globals": [
-        "inf"
+        "inf",
+        "hookmetamethod",
+        "getnamecallmethod"
     ]
 }
