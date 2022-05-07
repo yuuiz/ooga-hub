@@ -61,7 +61,7 @@ Tab:AddToggle({
 	Default = false,
 	Flag = "fake-survive"
 })
-Tab:AddLabel("warns you if an admin is in-game")
+Tab:AddLabel("teleport you if an admin is in-game")
 Tab:AddToggle({
 	Name = "anti-admin",
 	Default = false,
