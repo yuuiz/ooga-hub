@@ -101,7 +101,7 @@ local Tab2 = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
-Tab2:AddLabel("make sure to use anticheat bypasses or else you get kicked")
+Tab2:AddLabel("for walkspeed to work, press shift to run.")
 Tab2:AddSlider({
 	Name = "Walkspeed",
 	Min = 0,
