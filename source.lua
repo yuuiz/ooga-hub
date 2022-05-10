@@ -37,7 +37,7 @@ Tab:AddToggle({
 	Default = false,
 	Flag = "infcash"
 })
-Tab:AddLabel("bypasses anticheat so hard 💀")
+Tab:AddLabel("Completely disable anticheat.")
 Tab:AddToggle({
 	Name = "Anticheat Bypass",
 	Default = false,
@@ -157,7 +157,7 @@ Tab3:AddButton({
 		  end)
   	end    
 })
-Tab3:AddLabel("this will makes rake moans sound 😳")
+Tab3:AddLabel("this will makes rake funny sound 😳")
 Tab3:AddToggle({
 	Name = "Rake Godmode",
 	Default = false,
