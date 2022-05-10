@@ -194,6 +194,11 @@ Tab3:AddButton({
 		  end)
   	end    
 })
+Tab3:AddToggle({
+	Name = "Loop Kill Rake",
+	Default = false,
+	Flag = "loop_kill"
+})
 OrionLib:Init()
 local Player = game.Players.LocalPlayer
 local oldnamecall; oldnamecall = hookmetamethod(game, "__namecall", function(self, ...)
@@ -291,6 +296,20 @@ while task.wait() do
 		pcall(function()
 			local script : LocalScript = plr.Character.SurvivedClient
 			script.Disabled = true
+		end)
+	end
+	if OrionLib.Flags["loop_kill"].Value == true then
+		pcall(function()
+			local args = {
+				[1] = workspace.Rake.HumanoidRootPart,
+				[2] = workspace.Rake.Humanoid,
+				[3] = 99999999999999,
+				[4] = "AAKKAKKAAKKA112121",
+				[5] = "ALALALAQAQAQ1+!'SA",
+				[6] = "TESTMQMQOQZP11A"
+			}
+
+			game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))
 		end)
 	end
 end
