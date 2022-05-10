@@ -92,7 +92,10 @@ Tab:AddButton({
 	Name = "Get All Tools",
 	Callback = function()
 	  	pcall(function()
-			-- Credit to the guy, he used my inf points cheat for this so-
+			--[[
+				i wont credit this guy, he called me out as a skid 💀
+				while he using my inf points system
+			--]]
 			local folder : Folder = plr.PlayerGui.ShopGui.ShopTools
 			for _,v in pairs(folder:GetChildren()) do
 				local args = {
