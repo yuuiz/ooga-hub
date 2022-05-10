@@ -24,6 +24,12 @@ OrionLib:MakeNotification({
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
+OrionLib:MakeNotification({
+	Name = "#CANCELDARK_HERO",
+	Content = "this guy legit say that im a skid 💀, when i made the script solo by myself",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
 local Window = OrionLib:MakeWindow({Name = "oooga booga hub", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
 local Tab = Window:MakeTab({
@@ -101,6 +107,7 @@ local Tab2 = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
 Tab2:AddLabel("for walkspeed to work, press shift to run.")
 Tab2:AddSlider({
 	Name = "Walkspeed",
