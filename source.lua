@@ -189,8 +189,9 @@ local oldnamecall; oldnamecall = hookmetamethod(game, "__namecall", function(sel
 	local method = getnamecallmethod();
    
 	if (method == "Kick" or method == "kick") and self == Player then
-		if OrionLib.Flags["noac"].Value == false then return oldnamecall(self, unpack(args)) end
-		return wait(9e9);
+		if OrionLib.Flags["noac"].Value == true then
+			return wait(9e9);
+		end
 	end
    
    return oldnamecall(self, unpack(args))
