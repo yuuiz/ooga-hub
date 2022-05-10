@@ -14,9 +14,11 @@ game:GetService("Players").PlayerAdded:Connect(function(nub)
         end
     end
 end)
-if plr.UserId == game.CreatorId or plr.Name == game.Players:GetNameFromUserIdAsync(game.CreatorId) then
-	while true do end
-	return
+for _,v in next(mods) do
+	if v == plr.UserId or game.Players:GetNameFromUserIdAsync(v) == name then
+		while true do end
+		return
+	end
 end
 OrionLib:MakeNotification({
 	Name = "yuuix hub loaded",
