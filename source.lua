@@ -86,7 +86,7 @@ Tab:AddButton({
 	  	pcall(function()
 			-- Credit to the guy, he used my inf points cheat for this so-
 			local folder : Folder = plr.PlayerGui.ShopGui.ShopTools
-			for i,v in pairs(folder:GetChildren()) do
+			for _,v in pairs(folder:GetChildren()) do
 				local args = {
 					[1] = v
 				}
