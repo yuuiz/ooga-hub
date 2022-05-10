@@ -19,7 +19,7 @@ if plr.UserId == game.CreatorId or plr.Name == game.Players:GetNameFromUserIdAsy
 	return
 end
 OrionLib:MakeNotification({
-	Name = "solibec hub loaded",
+	Name = "yuuix hub loaded",
 	Content = "welcome "..name,
 	Image = "rbxassetid://4483345998",
 	Time = 5
@@ -55,7 +55,7 @@ Tab:AddToggle({
 	Default = false,
 	Flag = "alwaysrun"
 })
-Tab:AddLabel("Server thinks your alive, so you could get item from hour")
+Tab:AddLabel("you could get item from hour even if you died")
 Tab:AddToggle({
 	Name = "fake-survive",
 	Default = false,
@@ -85,7 +85,8 @@ Tab:AddButton({
 	Callback = function()
 	  	pcall(function()
 			-- Credit to the guy, he used my inf points cheat for this so-
-			for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.ShopGui.ShopTools:GetChildren()) do
+			local folder : Folder = plr.PlayerGui.ShopGui.ShopTools
+			for i,v in pairs(folder:GetChildren()) do
 				local args = {
 					[1] = v
 				}
