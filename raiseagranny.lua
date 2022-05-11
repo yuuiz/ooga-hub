@@ -32,11 +32,10 @@ Main:AddButton({
 Main:AddButton({
 	Name = "Inf Food",
 	Callback = function()
-		local args = {
-			[1] = game:GetService("ReplicatedStorage").Items.food
-		}
 		for i=1, 100 do
-			print(i)
+			local args = {
+				[1] = game:GetService("ReplicatedStorage").Items.food
+			}
 			game:GetService("ReplicatedStorage").buyTool:FireServer(unpack(args))
 		end
 	end
