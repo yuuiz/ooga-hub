@@ -93,6 +93,15 @@ Tab:AddToggle({
 	Name = "Disables Fog",
 	Default = false,
 	Callback = function(Value)
+		if OrionLib.Flags["noac"].Value == false then 
+			OrionLib:MakeNotification({
+				Name = "WARNING",
+				Content = "Please enable Anticheat Bypasser!",
+				Image = "rbxassetid://4483345998",
+				Time = 2
+			})
+			return
+		end
 		if Value == true then
 			game.Lighting.FogEnd = 9e9
 		else
