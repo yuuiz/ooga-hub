@@ -195,6 +195,7 @@ Tab3:AddButton({
 		  end)
   	end    
 })
+Tab3:AddLabel("kill rake making kids can't earn points")
 Tab3:AddToggle({
 	Name = "Loop Kill Rake",
 	Default = false,
