@@ -8,6 +8,11 @@ local function deletescript(item)
 		item.Parent = nil
 	end
 end
+local function spamRemote(item : RemoteEvent, times : number)
+	for i=1, times do
+		item:FireServer()
+	end
+end
 local Main = Window:MakeTab({
 	Name = "Main",
 	Icon = "rbxassetid://4483345998",
@@ -17,10 +22,7 @@ local Main = Window:MakeTab({
 Main:AddButton({
 	Name = "Inf Money",
 	Callback = function()
-        for i=1, 100 do
-			print(i)
-            game.ReplicatedStorage.cleanPoop:FireServer()
-        end
+        spamRemote(game.ReplicatedStorage.cleanPoop, 100)
   	end    
 })
 Main:AddButton({
