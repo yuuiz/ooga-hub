@@ -13,6 +13,13 @@ local function spamRemote(item : RemoteEvent, times : number)
 		item:FireServer()
 	end
 end
+local function spawnFood()
+	local args = {
+		[1] = game:GetService("ReplicatedStorage").Items.food
+	}
+
+	game:GetService("ReplicatedStorage").buyTool:FireServer(unpack(args))
+end
 local Main = Window:MakeTab({
 	Name = "Main",
 	Icon = "rbxassetid://4483345998",
@@ -27,14 +34,7 @@ Main:AddButton({
 })
 Main:AddButton({
 	Name = "Get Food",
-	Callback = function()
-		local args = {
-			[1] = game:GetService("ReplicatedStorage").Items.food
-		}
-
-		game:GetService("ReplicatedStorage").buyTool:FireServer(unpack(args))
-
-	end
+	Callback = spawnFood
 })
 Main:AddButton({
 	Name = "Inf Food",
