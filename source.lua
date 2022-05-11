@@ -48,19 +48,19 @@ Tab:AddToggle({
 })
 Tab:AddLabel("Completely disable anticheat.")
 Tab:AddToggle({
-	Name = "Anticheat Bypass",
+	Name = "funni ac bypass",
 	Default = false,
 	Flag = "noac"
 })
 Tab:AddLabel("this supports tool too :)")
 Tab:AddToggle({
-	Name = "Inf Stamina",
+	Name = "inf stamine",
 	Default = false,
 	Flag = "infrun"
 })
 Tab:AddLabel("Work best with BOOM tool")
 Tab:AddToggle({
-	Name = "Always Can Run",
+	Name = "always run",
 	Default = false,
 	Flag = "alwaysrun"
 })
