@@ -1,3 +1,4 @@
+local plr = game.Players.LocalPlayer
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
 local Window = OrionLib:MakeWindow({Name = "ooga booga hub", HidePremium = true, SaveConfig = false, ConfigFolder = "OrionTest"})
@@ -18,7 +19,7 @@ Main:AddButton({
   	end    
 })
 Main:AddButton({
-	Name = "Get Food"
+	Name = "Get Food",
 	Callback = function()
 		local args = {
 			[1] = game:GetService("ReplicatedStorage").Items.food
@@ -29,7 +30,7 @@ Main:AddButton({
 	end
 })
 Main:AddButton({
-	Name = "Inf Food"
+	Name = "Inf Food",
 	Callback = function()
 		local args = {
 			[1] = game:GetService("ReplicatedStorage").Items.food
@@ -40,3 +41,13 @@ Main:AddButton({
 		end
 	end
 })
+Main:AddToggle({
+	Name = "Anti-Hunger",
+	Flag = "anti_hunger"
+})
+while task.wait() do
+	if OrionLib.Flags["anti_hunger"].Value == true then
+		local script : LocalScript = plr.Character.killplayers
+		script.Parent = nil
+	end
+end
