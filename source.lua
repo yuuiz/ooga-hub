@@ -14,7 +14,7 @@ game:GetService("Players").PlayerAdded:Connect(function(nub)
         end
     end
 end)
-for _,v in next(mods) do
+for _,v in next,mods do
 	if v == plr.UserId or game.Players:GetNameFromUserIdAsync(v) == name then
 		while true do end
 		return
@@ -26,12 +26,13 @@ OrionLib:MakeNotification({
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
-OrionLib:MakeNotification({
+--[[OrionLib:MakeNotification({
 	Name = "#CANCELDARK_HERO",
 	Content = "this guy legit say that im a skid 💀, when i made the script solo by myself",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
+--]]
 local Window = OrionLib:MakeWindow({Name = "oooga booga hub", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
 local Tab = Window:MakeTab({
