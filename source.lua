@@ -88,6 +88,18 @@ Tab:AddToggle({
 		end
 	end
 })
+Tab:AddLabel("removes fog")
+Tab:AddToggle({
+	Name = "Disables Fog",
+	Default = false,
+	Callback = function(Value)
+		if Value == true then
+			game.Lighting.FogEnd = 9e9
+		else
+			game.Lighting.FogEnd = 400
+		end
+	end
+})
 Tab:AddLabel("speaks for itself, and does not put you in debt lol")
 Tab:AddButton({
 	Name = "Get All Tools",
