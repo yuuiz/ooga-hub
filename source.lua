@@ -103,7 +103,7 @@ Tab:AddToggle({
 			return
 		end
 		if Value == true then
-			game.Lighting.Brightness = 10
+			game.Lighting.Brightness = 50
 			game.Lighting.FogEnd = 9e9
 		else
 			game.Lighting.Brightness = 3
