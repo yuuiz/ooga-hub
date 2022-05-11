@@ -12,9 +12,21 @@ Main:AddButton({
 	Name = "Inf Money",
 	Callback = function()
         for i=1, 100 do
+			print(i)
             game.ReplicatedStorage.cleanPoop:FireServer()
         end
   	end    
+})
+Main:AddButton({
+	Name = "Get Food"
+	Callback = function()
+		local args = {
+			[1] = game:GetService("ReplicatedStorage").Items.food
+		}
+
+		game:GetService("ReplicatedStorage").buyTool:FireServer(unpack(args))
+
+	end
 })
 Main:AddButton({
 	Name = "Get Food"
