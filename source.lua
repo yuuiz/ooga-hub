@@ -9,7 +9,7 @@ local kicks = {
 	"go fucking watch hentai",
 	"nigger",
 	"nigga",
-	"solibec#1336, speak to me kiddo",
+	"solibecc#1336, speak to me kiddo",
 	"go fuck yourself",
 	"kys",
 	"how about go get bitches",
