@@ -230,30 +230,29 @@ local remote : RemoteEvent = plr.Character.SurvivedClient
 local oldnamecall; oldnamecall = hookmetamethod(game, "__namecall", function(self, ...)
     local args = {...}
     local method = getnamecallmethod();
-
-    if (method == "Kick" or method == "kick") and self == Player then
-        if OrionLib.Flags["noac"].Value == true then
+    if method == "FireServer" and self.Name == "SurvivedClient" then
+        if OrionLib.Flags["fake-survive"].Value == true then
+            print("giggity giggity!")
             return wait(9e9);
         end
     end
 
    return oldnamecall(self, unpack(args))
 end)
-local OldFireServer
-OldFireServer = hookfunction(remote, newcclosure(function(Event, ...)
-    if not checkcaller() then
-        local Args = {...}
 
-        if Event == "FireServer" then
-			print("bypass remote")
-			return wait(9e9);
-		else
-			print(Event,Args)
-		end
-    end
-
-    return OldFireServer(Event, ...)
-end))
+local Player = game.Players.LocalPlayer
+local antiKick; antiKick = hookmetamethod(game, "__namecall", function(self, ...)
+   local args = {...}
+   local method = getnamecallmethod();
+   
+   if (method == "Kick" or method == "kick") and self == Player then
+       if OrionLib.Flags["noac"] == true then
+           return wait(9e9);
+       end
+   end
+   
+   return antiKick(self, ...)
+end)
 
 while task.wait() do
 	game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
