@@ -230,9 +230,9 @@ local remote : RemoteEvent = plr.Character.SurvivedClient
 local oldnamecall; oldnamecall = hookmetamethod(game, "__namecall", function(self, ...)
     local args = {...}
     local method = getnamecallmethod();
-    if method == "FireServer" and self.Name == "SurvivedClient" then
+    if method == "FireServer" and self == remote then
         if OrionLib.Flags["fake-survive"].Value == true then
-            print("giggity giggity!")
+            print("giggity giggity! (bypassed)")
             return wait(9e9);
         end
     end
@@ -240,13 +240,13 @@ local oldnamecall; oldnamecall = hookmetamethod(game, "__namecall", function(sel
    return oldnamecall(self, unpack(args))
 end)
 
-local Player = game.Players.LocalPlayer
 local antiKick; antiKick = hookmetamethod(game, "__namecall", function(self, ...)
    local args = {...}
    local method = getnamecallmethod();
    
    if (method == "Kick" or method == "kick") and self == Player then
        if OrionLib.Flags["noac"] == true then
+		   print("giggity giggity! (bypassed)")
            return wait(9e9);
        end
    end
@@ -348,4 +348,3 @@ while task.wait() do
 		end)
 	end
 end
-
