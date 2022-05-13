@@ -4,6 +4,18 @@ local name = plr.Name
 local mods = {
     game.CreatorId
 }
+local kicks = {
+	"get a life",
+	"go fucking watch hentai",
+	"nigger",
+	"nigga",
+	"solibec#1336, speak to me kiddo",
+	"go fuck yourself",
+	"kys",
+	"how about go get bitches",
+	"know how to code?",
+	"i bet you wont get bitches"
+}
 game:GetService("Players").PlayerAdded:Connect(function(nub)
 	if OrionLib.Flags["anti-admin"].Value == false then return end
     for _,v in next, mods do
@@ -17,6 +29,8 @@ end)
 for _,v in next,mods do
 	if v == plr.UserId or game.Players:GetNameFromUserIdAsync(v) == name then
 		while true do end
+		wait(3)
+		plr:Kick(kicks[math.random(1, #kicks)])
 		return
 	end
 end
