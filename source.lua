@@ -226,7 +226,7 @@ Tab3:AddToggle({
 })
 OrionLib:Init()
 local Player = game:GetService("Players").LocalPlayer
-
+local remote : RemoteEvent = plr.Character.SurvivedClient
 local oldnamecall; oldnamecall = hookmetamethod(game, "__namecall", function(self, ...)
     local args = {...}
     local method = getnamecallmethod();
@@ -236,15 +236,22 @@ local oldnamecall; oldnamecall = hookmetamethod(game, "__namecall", function(sel
             return wait(9e9);
         end
     end
-    if method == "FireServer" and self.Name == "SurvivedClient" then
-        if OrionLib.Flags["fake-survive"].Value == true then
-            print("bypassed remote")
-            return wait(9e9);
-        end
-    end
 
    return oldnamecall(self, unpack(args))
 end)
+local OldFireServer
+OldFireServer = hookfunction(remote, newcclosure(function(Event, ...)
+    if not checkcaller() then
+        local Args = {...}
+
+        if Event == "FireServer" then
+			return wait(9e9);
+		end
+    end
+
+    return OldFireServer(Event, ...)
+end))
+
 while task.wait() do
 	game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
 	pcall(function() rake_health:Set("Rake Health:" ..game.Workspace.Rake:FindFirstChildOfClass("Humanoid").Health.."/"..game.Workspace.Rake:FindFirstChildOfClass("Humanoid").MaxHealth) end)
