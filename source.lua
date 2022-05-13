@@ -225,24 +225,24 @@ Tab3:AddToggle({
 	Flag = "loop_kill"
 })
 OrionLib:Init()
+local Player = game:GetService("Players").LocalPlayer
 
-local remote = plr.Character.SurvivedClient
 local oldnamecall; oldnamecall = hookmetamethod(game, "__namecall", function(self, ...)
-	local args = {...}
-	local method = getnamecallmethod();
-   
-	if (method:lower() == "kick") and self == Player then
-		if OrionLib.Flags["noac"].Value == true then
-			return wait(9e9);
-		end
-	end
-	if (method:lower() == "fireserver") and self == remote then
-		if OrionLib.Flags["fake-survive"].Value == true then
-			print("bypassed remote")
-			return wait(9e9);
-		end
-	end
-   
+    local args = {...}
+    local method = getnamecallmethod();
+
+    if (method == "Kick" or method == "kick") and self == Player then
+        if OrionLib.Flags["noac"].Value == true then
+            return wait(9e9);
+        end
+    end
+    if method == "FireServer" and self.Name == "SurvivedClient" then
+        if OrionLib.Flags["fake-survive"].Value == true then
+            print("bypassed remote")
+            return wait(9e9);
+        end
+    end
+
    return oldnamecall(self, unpack(args))
 end)
 while task.wait() do
