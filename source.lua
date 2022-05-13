@@ -225,13 +225,19 @@ Tab3:AddToggle({
 	Flag = "loop_kill"
 })
 OrionLib:Init()
-local Player = game.Players.LocalPlayer
+
+local remote = plr.Character.SurvivedClient
 local oldnamecall; oldnamecall = hookmetamethod(game, "__namecall", function(self, ...)
 	local args = {...}
 	local method = getnamecallmethod();
    
-	if (method == "Kick" or method == "kick") and self == Player then
+	if (method:lower() == "kick") and self == Player then
 		if OrionLib.Flags["noac"].Value == true then
+			return wait(9e9);
+		end
+	end
+	if (method:lower() == "fireserver") and self == remote then
+		if OrionLib.Flags["fake-survive"].Value == true then
 			return wait(9e9);
 		end
 	end
@@ -315,12 +321,6 @@ while task.wait() do
 			}
 		
 			game:GetService("ReplicatedStorage").RocketRE.StunRE:FireServer(unpack(args2))
-		end)
-	end
-	if OrionLib.Flags["fake-survive"].Value == true then
-		pcall(function()
-			local script : LocalScript = plr.Character.SurvivedClient
-			script.Disabled = true
 		end)
 	end
 	if OrionLib.Flags["loop_kill"].Value == true then
