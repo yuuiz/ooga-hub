@@ -2,6 +2,9 @@
     "robloxLsp.diagnostics.globals": [
         "inf",
         "hookmetamethod",
-        "getnamecallmethod"
+        "getnamecallmethod",
+        "hookfunction",
+        "newcclosure",
+        "checkcaller"
     ]
 }
