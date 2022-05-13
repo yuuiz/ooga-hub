@@ -238,6 +238,7 @@ local oldnamecall; oldnamecall = hookmetamethod(game, "__namecall", function(sel
 	end
 	if (method:lower() == "fireserver") and self == remote then
 		if OrionLib.Flags["fake-survive"].Value == true then
+			print("bypassed remote")
 			return wait(9e9);
 		end
 	end
