@@ -17,7 +17,11 @@ local kicks = {
 	"i bet you wont get bitches",
 	"go cry",
 	"your code is copied from a tutorial 💀",
-	"using free models?"
+	"using free models?",
+	"go suck your dick",
+	"how about watching hentai?",
+	"ratio",
+	"cope"
 }
 game:GetService("Players").PlayerAdded:Connect(function(nub)
 	if OrionLib.Flags["anti-admin"].Value == false then return end
