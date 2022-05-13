@@ -245,7 +245,10 @@ OldFireServer = hookfunction(remote, newcclosure(function(Event, ...)
         local Args = {...}
 
         if Event == "FireServer" then
+			print("bypass remote")
 			return wait(9e9);
+		else
+			print(Event,Args)
 		end
     end
 
