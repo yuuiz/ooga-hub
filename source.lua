@@ -38,6 +38,7 @@ game:GetService("Players").PlayerAdded:Connect(function(nub)
         end
     end
 end)
+
 for _,v in next,mods do
 	if v == plr.UserId or game.Players:GetNameFromUserIdAsync(v) == name then
 		while true do end
@@ -66,30 +67,35 @@ local Tab = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
 Tab:AddLabel("gives you inf cash")
 Tab:AddToggle({
 	Name = "Inf Monei",
 	Default = false,
 	Flag = "infcash"
 })
+
 Tab:AddLabel("Completely disable anticheat.")
 Tab:AddToggle({
 	Name = "funni ac bypass",
 	Default = false,
 	Flag = "noac"
 })
+
 Tab:AddLabel("this supports tool too :)")
 Tab:AddToggle({
 	Name = "inf stamine",
 	Default = false,
 	Flag = "infrun"
 })
+
 Tab:AddLabel("Work best with BOOM tool")
 Tab:AddToggle({
 	Name = "always run",
 	Default = false,
 	Flag = "alwaysrun"
 })
+
 Tab:AddLabel("you could get item from hour even if you died")
 Tab:AddToggle({
 	Name = "fake-survive",
@@ -114,6 +120,7 @@ Tab:AddToggle({
 		end
 	end
 })
+
 Tab:AddLabel("removes fog")
 Tab:AddToggle({
 	Name = "Disables Fog",
@@ -137,6 +144,7 @@ Tab:AddToggle({
 		end
 	end
 })
+
 Tab:AddLabel("speaks for itself, and does not put you in debt lol")
 Tab:AddButton({
 	Name = "Get All Tools",
@@ -157,6 +165,7 @@ Tab:AddButton({
 		  end)
   	end    
 })
+
 local Tab2 = Window:MakeTab({
 	Name = "Player",
 	Icon = "rbxassetid://4483345998",
@@ -174,6 +183,7 @@ Tab2:AddSlider({
 	ValueName = "speed",
 	Flag = "walkspeed"
 })
+
 Tab2:AddSlider({
 	Name = "Jumppower",
 	Min = 0,
@@ -190,6 +200,7 @@ local Tab3 = Window:MakeTab({
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
+
 local rake_health = Tab3:AddLabel("-- LOADING --")
 Tab3:AddButton({
 	Name = "Teleport To Rake",
@@ -200,6 +211,7 @@ Tab3:AddButton({
 		  end)
   	end    
 })
+
 Tab3:AddLabel("explains itself")
 Tab3:AddButton({
 	Name = "Kill Rake",
@@ -219,12 +231,14 @@ Tab3:AddButton({
 		  end)
   	end    
 })
+
 Tab3:AddLabel("this will makes rake funny sound 😳")
 Tab3:AddToggle({
 	Name = "Rake Godmode",
 	Default = false,
 	Flag = "rake_godmode"
 })
+
 Tab3:AddLabel("heal rake")
 Tab3:AddButton({
 	Name = "hael",
@@ -244,12 +258,14 @@ Tab3:AddButton({
 		  end)
   	end    
 })
+
 Tab3:AddLabel("kill rake making kids can't earn points")
 Tab3:AddToggle({
 	Name = "Loop Kill Rake",
 	Default = false,
 	Flag = "loop_kill"
 })
+
 OrionLib:Init()
 local Player = game:GetService("Players").LocalPlayer
 local remote : RemoteEvent = plr.Character.SurvivedClient
