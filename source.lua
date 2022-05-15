@@ -21,8 +21,13 @@ local kicks = {
 	"go suck your dick",
 	"how about watching hentai?",
 	"ratio",
-	"cope"
+	"cope",
+	"fuck nigga",
+	"your haram",
+	"your not halal",
+	"rajj, fix this mother fucking weight"
 }
+
 game:GetService("Players").PlayerAdded:Connect(function(nub)
 	if OrionLib.Flags["anti-admin"].Value == false then return end
     for _,v in next, mods do
