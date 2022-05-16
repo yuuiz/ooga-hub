@@ -1,3 +1,4 @@
+local Players = game:GetService("Players")
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local plr = game.Players.LocalPlayer
 local name = plr.Name
@@ -41,7 +42,10 @@ end)
 
 for _,v in next,mods do
 	if v == plr.UserId or game.Players:GetNameFromUserIdAsync(v) == name then
-		while true do end
+		while true do 
+			wait(1)
+			Players:Chat(kicks[math.random(1, #kicks)])
+		end
 		wait(3)
 		plr:Kick(kicks[math.random(1, #kicks)])
 		return
