@@ -296,7 +296,7 @@ local antiKick; antiKick = hookmetamethod(game, "__namecall", function(self, ...
    return antiKick(self, ...)
 end)
 
-while task.wait() do
+game:GetService("RunService").Heartbeat:Connect(function()
 	game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
 	pcall(function() rake_health:Set("Rake Health:" ..game.Workspace.Rake:FindFirstChildOfClass("Humanoid").Health.."/"..game.Workspace.Rake:FindFirstChildOfClass("Humanoid").MaxHealth) end)
 	if OrionLib.Flags["infcash"].Value == true then
@@ -389,4 +389,4 @@ while task.wait() do
 			game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))
 		end)
 	end
-end
+end)
