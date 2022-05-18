@@ -28,7 +28,9 @@ local kicks = {
 	"your not halal",
 	"rajj, fix this mother fucking weight"
 }
-
+function checkBoolean(value, boolean : boolean)
+	return value == boolean
+end
 game:GetService("Players").PlayerAdded:Connect(function(nub)
 	if OrionLib.Flags["anti-admin"].Value == false then return end
     for _,v in next, mods do
@@ -309,7 +311,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
 			leaderstats.Value = 999999999999
 		end)
 	end
-	if OrionLib.Flags["noac"].Value == true then
+	if checkBoolean(OrionLib.Flags["noac"].Value, true) then
 		pcall(function()
 			local fixstuff : LocalScript = plr.Character.FixStuff
 			local mainloader : LocalScript = plr.Character.MainLoader
@@ -320,13 +322,13 @@ game:GetService("RunService").Heartbeat:Connect(function()
 			antiexploit:Destroy()
 		end)
 	end
-	if OrionLib.Flags["infrun"].Value == true then
+	if checkBoolean(OrionLib.Flags["infrun"].Value, true) then
 		pcall(function()
 			local stamina : NumberValue = plr.Character.StaminaValues.Stamina
 			stamina.Value = 200
 		end)
 	end
-	if OrionLib.Flags["alwaysrun"].Value == true then
+	if checkBoolean(OrionLib.Flags["alwaysrun"].Value, true) then
 		pcall(function()
 			local run : BoolValue = plr.Character.StaminaValues.CanRun
 			run.Value = true
@@ -364,7 +366,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
 			runspeed.Value = OrionLib.Flags["walkspeed"].Value
 		end)
 	end
-	if OrionLib.Flags["rake_godmode"].Value == true then
+	if checkBoolean(OrionLib.Flags["rake_godmode"].Value, true) then
 		pcall(function()
 			local args2 = {
 				[1] = workspace.Rake.Humanoid,
@@ -379,7 +381,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
 			game:GetService("ReplicatedStorage").RocketRE.StunRE:FireServer(unpack(args2))
 		end)
 	end
-	if OrionLib.Flags["loop_kill"].Value == true then
+	if checkBoolean(OrionLib.Flags["loop_kill"].Value, true) then
 		pcall(function()
 			local args = {
 				[1] = workspace.Rake.HumanoidRootPart,
