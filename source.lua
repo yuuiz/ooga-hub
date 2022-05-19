@@ -76,7 +76,7 @@ local Tab = Window:MakeTab({
 
 Tab:AddLabel("gives you inf cash")
 Tab:AddToggle({
-	Name = "Inf Monei",
+	Name = "inf bitches",
 	Default = false,
 	Flag = "infcash"
 })
@@ -142,7 +142,7 @@ Tab:AddToggle({
 			return
 		end
 		if Value == true then
-			game.Lighting.Brightness = 50
+			game.Lighting.Brightness = 20
 			game.Lighting.FogEnd = 9e9
 		else
 			game.Lighting.Brightness = 3
@@ -153,7 +153,7 @@ Tab:AddToggle({
 
 Tab:AddLabel("speaks for itself, and does not put you in debt lol")
 Tab:AddButton({
-	Name = "Get All Tools",
+	Name = "get all bitches",
 	Callback = function()
 	  	pcall(function()
 			--[[
