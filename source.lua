@@ -142,7 +142,7 @@ Tab:AddToggle({
 			return
 		end
 		if Value == true then
-			game.Lighting.Brightness = 20
+			game.Lighting.Brightness = 10
 			game.Lighting.FogEnd = 9e9
 		else
 			game.Lighting.Brightness = 3
@@ -280,7 +280,6 @@ local oldnamecall; oldnamecall = hookmetamethod(game, "__namecall", function(sel
     local method = getnamecallmethod();
     if method == "FireServer" and self == remote then
         if OrionLib.Flags["fake-survive"].Value == true then
-            print("giggity giggity! (bypassed)")
             return wait(9e9);
         end
     end
@@ -299,7 +298,7 @@ local antiKick; antiKick = hookmetamethod(game, "__namecall", function(self, ...
        end
    end
    
-   return antiKick(self, ...)
+   return antiKick(self, unpack(args))
 end)
 
 game:GetService("RunService").Heartbeat:Connect(function()
