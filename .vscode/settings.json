@@ -5,6 +5,7 @@
         "getnamecallmethod",
         "hookfunction",
         "newcclosure",
-        "checkcaller"
+        "checkcaller",
+        "getgenv"
     ]
 }
