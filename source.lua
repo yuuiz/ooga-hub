@@ -44,10 +44,7 @@ end)
 
 for _,v in next,mods do
 	if v == plr.UserId or game.Players:GetNameFromUserIdAsync(v) == name then
-		while true do 
-			wait(1)
-			Players:Chat(kicks[math.random(1, #kicks)])
-		end
+		while true do end
 		wait(3)
 		plr:Kick(kicks[math.random(1, #kicks)])
 		return
@@ -250,16 +247,17 @@ Tab3:AddButton({
 	Name = "hael",
 	Callback = function()
 	  	pcall(function()
-			local args = {
-				[1] = workspace.Rake.HumanoidRootPart,
-				[2] = workspace.Rake.Humanoid,
-				[3] = -99999999999999,
-				[4] = "AAKKAKKAAKKA112121",
-				[5] = "ALALALAQAQAQ1+!'SA",
-				[6] = "TESTMQMQOQZP11A"
+			local args2 = {
+				[1] = workspace.Rake.Humanoid,
+				[2] = 99999999999,
+				[3] = workspace.Rake.AI.Stuns,
+				[4] = -100000,
+				[5] = "AAKKAKKAAKKA112121",
+				[6] = "ALALALAQAQAQ1+!'SA",
+				[7] = "TESTMQMQOQZP11A"
 			}
-
-			game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))
+		
+			game:GetService("ReplicatedStorage").RocketRE.StunRE:FireServer(unpack(args2))
 
 		  end)
   	end    
