@@ -66,8 +66,20 @@ TabBox:AddButton('kill rake', function()
         game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))
     end)
 end)
+TabBox:AddButton('get tools', function()
+    pcall(function()
+        local folder : Folder = plr.PlayerGui.ShopGui.ShopTools
+		for _,v in pairs(folder:GetChildren()) do
+			local args = {
+				[1] = v
+			}
+				
+			game:GetService("ReplicatedStorage").ShopEvents.Buy:FireServer(unpack(args))
+		end
+	end)
+end)
 TabBox2 = Main:AddRightGroupbox('Player')
-TabBox:AddToggle('speed', {
+TabBox2:AddToggle('speed', {
     Text = 'Toggle speed',
     Default = false,
     Tooltip = "Master switch for walkspeed,runspeed,jumppower",
