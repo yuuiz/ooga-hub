@@ -86,6 +86,7 @@ TabBox2:AddInput('walkspeed', {
 })
 Options.walkspeed:OnChanged(function()
     if plr.Character then
+        if Toggles.speed.Value == false then return end
         local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
         --local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
         walkspeed.Value = Options.walkspeed.Value
@@ -105,6 +106,7 @@ TabBox2:AddInput('runspeed', {
 })
 Options.runspeed:OnChanged(function()
     if plr.Character then
+        if Toggles.speed.Value == false then return end
         --local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
         local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
         --walkspeed.Value = Options.walkspeed.Value
@@ -125,6 +127,7 @@ TabBox2:AddInput('jumppower', {
 })
 Options.jumppower:OnChanged(function()
     if plr.Character:FindFirstChildOfClass("Humanoid") then
+        if Toggles.speed.Value == false then return end
         if Options.jumppower.Value == 0 then
             plr.Character:FindFirstChildOfClass("Humanoid").JumpPower = 50
         end
