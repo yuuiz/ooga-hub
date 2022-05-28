@@ -82,12 +82,12 @@ Options.walkspeed:OnChanged(function()
             local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
             walkspeed.Value = 10
             runspeed.Value = 35
-            return
+        else
+            local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
+            local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
+            walkspeed.Value = Options.walkspeed.Value
+            runspeed.Value = Options.walkspeed.Value
         end
-        local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
-        local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
-        walkspeed.Value = Options.walkspeed.Value
-        runspeed.Value = Options.walkspeed.Value
     end
 end)
 TabBox2:AddInput('jumppower', {
@@ -123,6 +123,9 @@ local antiKick; antiKick = hookmetamethod(game, "__namecall", function(self, ...
     return antiKick(self, unpack(args))
  end)
 while task.wait() do
+    if Library.Unloaded == true then
+        break
+    end
     game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
     if Toggles.infcash.Value == true then
         plr.leaderstats.Points.Value =  9e10
