@@ -164,7 +164,7 @@ while task.wait() do
     end
     game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
     if Toggles.infcash.Value == true then
-        plr.leaderstats.Points.Value =  9e10
+        pcall(function() plr.leaderstats.Points.Value = 9e10 end)
     end
     if Toggles.noac.Value == true then
         pcall(function()
@@ -178,15 +178,13 @@ while task.wait() do
         end)
     end
     if Toggles.infrun.Value == true then
-        pcall(function()
-            plr.Character.StaminaValues.Stamina.Value = 200
-        end)
+        pcall(function()plr.Character.StaminaValues.Stamina.Value = 200 end)
     end
     if Toggles.alwayrun.Value == true then
-        plr.Character.StaminaValues.CanRun.Value = true
+        pcall(function() plr.Character.StaminaValues.CanRun.Value = true end)
     end
     if Toggles.fakesurvive.Value == true then
-        plr.Character.SurvivedClient.Disabled = true
+        pcall(function() plr.Character.SurvivedClient.Disabled = true end)
     end
     if Toggles.loopkill.Value == true then
         pcall(function()
