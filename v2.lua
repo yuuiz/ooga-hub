@@ -82,6 +82,7 @@ Options.walkspeed:OnChanged(function()
             local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
             walkspeed.Value = 10
             runspeed.Value = 35
+            return
         end
         local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
         local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
