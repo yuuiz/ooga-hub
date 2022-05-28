@@ -67,8 +67,14 @@ TabBox:AddButton('kill rake', function()
     end)
 end)
 TabBox2 = Main:AddRightGroupbox('Player')
+TabBox:AddToggle('speed', {
+    Text = 'Toggle speed',
+    Default = false,
+    Tooltip = "Master switch for walkspeed,runspeed,jumppower",
+})
+
 TabBox2:AddInput('walkspeed', {
-    Default = '0',
+    Default = '10',
     Numeric = true, -- true / false, only allows numbers
     Finished = true, -- true / false, only calls callback when you press enter
 
@@ -80,17 +86,29 @@ TabBox2:AddInput('walkspeed', {
 })
 Options.walkspeed:OnChanged(function()
     if plr.Character then
-        if Options.walkspeed.Value == 0 then
-            local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
-            local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
-            walkspeed.Value = 10
-            runspeed.Value = 35
-        else
-            local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
-            local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
-            walkspeed.Value = Options.walkspeed.Value
-            runspeed.Value = Options.walkspeed.Value
-        end
+        local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
+        --local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
+        walkspeed.Value = Options.walkspeed.Value
+        --runspeed.Value = Options.walkspeed.Value
+    end
+end)
+TabBox2:AddInput('runspeed', {
+    Default = '35',
+    Numeric = true, -- true / false, only allows numbers
+    Finished = true, -- true / false, only calls callback when you press enter
+
+    Text = 'Runspeed',
+    Tooltip = 'you go zoom', -- Information shown when you hover over the textbox
+
+    Placeholder = 'Type a number here!', -- placeholder text when the box is empty
+    -- MaxLength is also an option which is the max length of the text
+})
+Options.runspeed:OnChanged(function()
+    if plr.Character then
+        --local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
+        local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
+        --walkspeed.Value = Options.walkspeed.Value
+        runspeed.Value = Options.walkspeed.Value
     end
 end)
 TabBox2:AddInput('jumppower', {
