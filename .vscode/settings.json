@@ -6,6 +6,8 @@
         "hookfunction",
         "newcclosure",
         "checkcaller",
-        "getgenv"
+        "getgenv",
+        "Toggles",
+        "Options"
     ]
 }
