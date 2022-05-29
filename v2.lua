@@ -1,7 +1,4 @@
 local plr = game.Players.LocalPlayer
-if plr.Name ~= "DanaSims61" then
-	plr:Kick("We highly suggest you to use v1 since this is buggy.")
-end
 if not plr.Character then
     plr.CharacterAdded:Wait()
 end
