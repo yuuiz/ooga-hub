@@ -91,6 +91,16 @@ TabBox:AddButton('heal rake', function()
 
     end)
 end)
+TabBox:AddButton('get totems', function()
+    pcall(function()
+        local totems : Folder = game:GetService("Workspace").BuffNoobRequirement.Noobs
+        for _,v in pairs(totems:GetDescendants) do
+            if v:IsA("BasePart") then
+                plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position)
+            end
+        end
+    end)
+end)
 TabBox2 = Main:AddRightGroupbox('Player')
 TabBox2:AddToggle('speed', {
     Text = 'Toggle speed',
