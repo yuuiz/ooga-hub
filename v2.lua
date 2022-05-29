@@ -94,7 +94,7 @@ end)
 TabBox:AddButton('get totems', function()
     pcall(function()
         local totems : Folder = game:GetService("Workspace").BuffNoobRequirement.Noobs
-        for _,v in pairs(totems:GetDescendants) do
+        for _,v in pairs(totems:GetDescendants()) do
             if v:IsA("BasePart") then
                 plr.Character.HumanoidRootPart.CFrame = CFrame.new(v.Position)
             end
