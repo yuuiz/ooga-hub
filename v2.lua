@@ -78,6 +78,22 @@ TabBox:AddButton('get tools', function()
 		end
 	end)
 end)
+TabBox:AddButton('heal rake', function()
+    pcall(function()
+        local args2 = {
+            [1] = workspace.Rake.Humanoid,
+            [2] = 99999999999,
+            [3] = workspace.Rake.AI.Stuns,
+            [4] = -100000,
+            [5] = "AAKKAKKAAKKA112121",
+            [6] = "ALALALAQAQAQ1+!'SA",
+            [7] = "TESTMQMQOQZP11A"
+        }
+    
+        game:GetService("ReplicatedStorage").RocketRE.StunRE:FireServer(unpack(args2))
+
+    end)
+end)
 TabBox2 = Main:AddRightGroupbox('Player')
 TabBox2:AddToggle('speed', {
     Text = 'Toggle speed',
@@ -178,7 +194,7 @@ while task.wait() do
         end)
     end
     if Toggles.infrun.Value == true then
-        pcall(function()plr.Character.StaminaValues.Stamina.Value = 200 end)
+        pcall(function()    plr.Character.StaminaValues.Stamina.Value = 200 end)
     end
     if Toggles.alwayrun.Value == true then
         pcall(function() plr.Character.StaminaValues.CanRun.Value = true end)
