@@ -101,6 +101,7 @@ TabBox:AddButton('get totems', function()
         end
     end)
 end)
+TabBox:AddButton('Unload', function() Library:Unload() end)
 TabBox2 = Main:AddRightGroupbox('Player')
 TabBox2:AddToggle('speed', {
     Text = 'Toggle speed',
@@ -175,12 +176,16 @@ local antiKick; antiKick = hookmetamethod(game, "__namecall", function(self, ...
     
     if (method == "Kick" or method == "kick") and self == plr then
         if Toggles.noac.Value == true then
+            print("anti kick disabler best")
             return wait(9e9);
         end
     end
     
     return antiKick(self, unpack(args))
  end)
+Library:OnUnload(function()
+    Library.Unloaded = true
+end)
 while task.wait() do
     if Library.Unloaded == true then
         break
