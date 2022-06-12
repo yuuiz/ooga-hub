@@ -2,10 +2,23 @@ local plr = game.Players.LocalPlayer
 if not plr.Character then
     plr.CharacterAdded:Wait()
 end
+local function DamageRake(damage : number)
+    pcall(function()
+        local args = {
+            [1] = workspace.Rake.HumanoidRootPart,
+            [2] = workspace.Rake.Humanoid,
+            [3] = damage,
+            [4] = "AAKKAKKAAKKA112121",
+            [5] = "ALALALAQAQAQ1+!'SA",
+            [6] = "TESTMQMQOQZP11A"
+        }
+    
+        game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))
+    end)
+end
 local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
-
 local Window = Library:CreateWindow({
     -- Set Center to true if you want the menu to appear in the center
     -- Set AutoShow to true if you want the menu to appear when it is created
@@ -51,16 +64,7 @@ TabBox:AddToggle('loopkill', {
 })
 TabBox:AddButton('kill rake', function()
     pcall(function()
-        local args = {
-            [1] = workspace.Rake.HumanoidRootPart,
-            [2] = workspace.Rake.Humanoid,
-            [3] = 999999999,
-            [4] = "AAKKAKKAAKKA112121",
-            [5] = "ALALALAQAQAQ1+!'SA",
-            [6] = "TESTMQMQOQZP11A"
-        }
-    
-        game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))
+        DamageRake(9999999999)
     end)
 end)
 TabBox:AddButton('get tools', function()
@@ -77,17 +81,7 @@ TabBox:AddButton('get tools', function()
 end)
 TabBox:AddButton('heal rake', function()
     pcall(function()
-        local args2 = {
-            [1] = workspace.Rake.Humanoid,
-            [2] = 99999999999,
-            [3] = workspace.Rake.AI.Stuns,
-            [4] = -100000,
-            [5] = "AAKKAKKAAKKA112121",
-            [6] = "ALALALAQAQAQ1+!'SA",
-            [7] = "TESTMQMQOQZP11A"
-        }
-    
-        game:GetService("ReplicatedStorage").RocketRE.StunRE:FireServer(unpack(args2))
+        DamageRake(-9999999999)
 
     end)
 end)
@@ -215,17 +209,6 @@ while task.wait() do
         pcall(function() plr.Character.SurvivedClient.Disabled = true end)
     end
     if Toggles.loopkill.Value == true then
-        pcall(function()
-            local args = {
-                [1] = workspace.Rake.HumanoidRootPart,
-                [2] = workspace.Rake.Humanoid,
-                [3] = 999999999,
-                [4] = "AAKKAKKAAKKA112121",
-                [5] = "ALALALAQAQAQ1+!'SA",
-                [6] = "TESTMQMQOQZP11A"
-            }
-        
-            game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))
-        end)
+        DamageRake(9999999999)
     end
 end
