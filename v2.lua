@@ -1,7 +1,8 @@
-local plr = game.Players.LocalPlayer
-if not plr.Character then
-    plr.CharacterAdded:Wait()
-end
+local plr = game:GetService('Players').LocalPlayer
+
+function getchar() return plr.Character or plr.CharacterAdded:Wait() end
+
+--[[
 local function DamageRake(damage : number)
     pcall(function()
         local args = {
@@ -16,6 +17,7 @@ local function DamageRake(damage : number)
         game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))
     end)
 end
+--]]
 local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
@@ -44,20 +46,8 @@ TabBox:AddToggle('alwayrun', {
 TabBox:AddToggle('loopkill', {
     Text = 'Loop kill rake',
     Default = false,
-    Tooltip = "This will make rake ded forever and dont grant points so kid will be mad",
+    Tooltip = "This will make rake ded forever and dont grant points so kid will be mad (not working)",
 })
-TabBox:AddButton('get tools', function()
-    pcall(function()
-        local folder : Folder = plr.PlayerGui.ShopGui.ShopTools
-		for _,v in pairs(folder:GetChildren()) do
-			local args = {
-				[1] = v
-			}
-				
-			game:GetService("ReplicatedStorage").ShopEvents.Buy:FireServer(unpack(args))
-		end
-	end)
-end)
 TabBox:AddButton('Unload', function() Library:Unload() end)
 TabBox2 = Main:AddRightGroupbox('Player')
 TabBox2:AddToggle('speed', {
@@ -77,8 +67,8 @@ TabBox2:AddInput('walkspeed', {
     Placeholder = 'Type a number here!',
 })
 Options.walkspeed:OnChanged(function()
-    if plr.Character and Toggles.speed.Value == true then
-        local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
+    if getchar() and Toggles.speed.Value then
+        local walkspeed : NumberValue = getchar().StaminaValues.WalkSpeed
         --local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
         walkspeed.Value = Options.walkspeed.Value
         --runspeed.Value = Options.walkspeed.Value
@@ -95,9 +85,9 @@ TabBox2:AddInput('runspeed', {
     Placeholder = 'Type a number here!',
 })
 Options.runspeed:OnChanged(function()
-    if plr.Character and Toggles.speed.Value = true then
+    if Toggles.speed.Value == true then
         --local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
-        local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
+        local runspeed : NumberValue = getchar().StaminaValues.RunSpeed
         --walkspeed.Value = Options.walkspeed.Value
         runspeed.Value = Options.walkspeed.Value
     end
@@ -113,11 +103,11 @@ TabBox2:AddInput('jumppower', {
     Placeholder = 'Type a number here!', -- placeholder text when the box is empty
 })
 Options.jumppower:OnChanged(function()
-    if plr.Character:FindFirstChildOfClass("Humanoid")  and Toggles.speed.Value == true then
+    if getchar():FindFirstChildOfClass("Humanoid")  and Toggles.speed.Value == true then
         if Options.jumppower.Value == 0 then
-            plr.Character:FindFirstChildOfClass("Humanoid").JumpPower = 50
+            getchar():FindFirstChildOfClass("Humanoid").JumpPower = 50
         end
-        plr.Character:FindFirstChildOfClass("Humanoid").JumpPower = Options.jumppower.Value
+        getchar():FindFirstChildOfClass("Humanoid").JumpPower = Options.jumppower.Value
     end
 end)
 local antiKick; antiKick = hookmetamethod(game, "__namecall", function(self, ...)
@@ -125,7 +115,7 @@ local antiKick; antiKick = hookmetamethod(game, "__namecall", function(self, ...
     local method = getnamecallmethod();
     
     if (method == "Kick" or method == "kick") and self == plr then
-        if Toggles.noac.Value == true then
+        if Toggles.noac.Value == true and Library.Unloaded == true then
             print("anti kick disabler best")
             return wait(9e9);
         end
@@ -142,8 +132,8 @@ while task.wait() do
     end
     game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
     if Toggles.noac.Value == true then
-        if plr.Character and plr.Character:FindFirstChild('ANTIEXPLOIT') then
-            local antiexploit = plr.Character:FindFirstChild('ANTIEXPLOIT')
+        if getchar():FindFirstChild('ANTIEXPLOIT') then
+            local antiexploit = getchar():FindFirstChild('ANTIEXPLOIT')
 
             if antiexploit then
 				antiexploit:Destroy()
@@ -151,13 +141,13 @@ while task.wait() do
         end
     end
     if Toggles.infrun.Value == true then
-        if plr.Character and plr.Character:FindFirstChild('StaminaValues') and plr.Character.StaminaValues:FindFirstChild('Stamina') then
-			plr.Character.StaminaValues.Stamina.Value = 200
+        if getchar():FindFirstChild('StaminaValues') and getchar().StaminaValues:FindFirstChild('Stamina') then
+			getchar().StaminaValues.Stamina.Value = 200
 		end
     end
     if Toggles.alwayrun.Value == true then
-        if plr.Character and plr.Character:FindFirstChild('StaminaValues') and plr.Character:FindFirstChild('CanRun') then
-			plr.Character.StaminaValues.CanRun.Value = true
+        if getchar():FindFirstChild('StaminaValues') and getchar():FindFirstChild('CanRun') then
+			getchar().StaminaValues.CanRun.Value = true
 		end
     end
 end
