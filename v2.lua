@@ -31,29 +31,29 @@ TabBox = Main:AddLeftGroupbox('OP')
 TabBox:AddToggle('noac', {
     Text = "anticheat bypass",
     Default = true,
-    Tooltip = 'This will bypasses the game anticheat which is shit',
+    Tooltip = 'removes the game anticheat so you could basically "fly"',
 })
 TabBox:AddToggle('infrun', {
     Text = 'inf stamina',
     Default = false,
-    Tooltip = "Self-Explaintory, btw this supports tools too!",
+    Tooltip = "work fors tool as well for some reason",
 })
 TabBox:AddToggle('alwayrun', {
     Text = 'always run',
     Default = false,
-    Tooltip = "Self-Explaintory, prevent BOOM making you can't run",
+    Tooltip = "you could run with boom in your hands now",
 })
 TabBox:AddToggle('loopkill', {
     Text = 'Loop kill rake',
     Default = false,
-    Tooltip = "This will make rake ded forever and dont grant points so kid will be mad (not working)",
+    Tooltip = "(not working due to the developer being lazy)",
 })
-TabBox:AddButton('Unload', function() Library:Unload() end)
+TabBox:AddButton('unload', function() Library:Unload() end)
 TabBox2 = Main:AddRightGroupbox('Player')
 TabBox2:AddToggle('speed', {
     Text = 'Toggle speed',
     Default = false,
-    Tooltip = "Master switch for walkspeed,runspeed,jumppower",
+    Tooltip = "Master switch for walkspeed, runspeed, jumppower",
 })
 
 TabBox2:AddInput('walkspeed', {
