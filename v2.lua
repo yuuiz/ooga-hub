@@ -85,7 +85,7 @@ TabBox2:AddInput('runspeed', {
     Placeholder = 'Type a number here!',
 })
 Options.runspeed:OnChanged(function()
-    if Toggles.speed.Value == true then
+    if Toggles.speed.Value then
         --local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
         local runspeed : NumberValue = getchar().StaminaValues.RunSpeed
         --walkspeed.Value = Options.walkspeed.Value
@@ -100,10 +100,10 @@ TabBox2:AddInput('jumppower', {
     Text = 'Jumppower',
     Tooltip = 'you go weee', -- Information shown when you hover over the textbox
 
-    Placeholder = 'Type a number here!', -- placeholder text when the box is empty
+    Placeholder = 'the amount of jumppower real', -- placeholder text when the box is empty
 })
 Options.jumppower:OnChanged(function()
-    if getchar():FindFirstChildOfClass("Humanoid")  and Toggles.speed.Value == true then
+    if getchar():FindFirstChildOfClass("Humanoid")  and Toggles.speed.Value then
         if Options.jumppower.Value == 0 then
             getchar():FindFirstChildOfClass("Humanoid").JumpPower = 50
         end
