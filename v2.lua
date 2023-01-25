@@ -105,13 +105,13 @@ end)
 
 TabBox2:AddInput('jumppower', {
 	Default = '0',
-	Numeric = true, -- true / false, only allows numbers
-	Finished = true, -- true / false, only calls callback when you press enter
+	Numeric = true,
+	Finished = true,
 
 	Text = 'Jumppower',
-	Tooltip = 'you go weee', -- Information shown when you hover over the textbox
+	Tooltip = 'you go weee',
 
-	Placeholder = 'the amount of jumppower real', -- placeholder text when the box is empty
+	Placeholder = 'the amount of jumppower real',
 })
 
 Options.jumppower:OnChanged(function()
