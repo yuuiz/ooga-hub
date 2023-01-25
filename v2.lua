@@ -128,9 +128,9 @@ local antiKick; antiKick = hookmetamethod(game, "__namecall", function(self, ...
 	local method = getnamecallmethod();
 	
 	if (method == "Kick" or method == "kick") and self == plr then
-		if Toggles.noac.Value == true and Library.Unloaded == true then
+		if Toggles.noac.Value == true and Library.Unloaded ~= nil then
 			print("anti kick disabler best")
-			return wait(9e9);
+			return wait(math.huge);
 		end
 	end
 	
