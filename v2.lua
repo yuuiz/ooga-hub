@@ -150,11 +150,7 @@ while task.wait() do
 	
 	if Toggles.noac.Value == true then
 		if getchar():FindFirstChild('ANTIEXPLOIT') then
-			local antiexploit = getchar():FindFirstChild('ANTIEXPLOIT')
-
-			if antiexploit then
-				antiexploit:Destroy()
-			end
+			getchar():FindFirstChild('ANTIEXPLOIT'):Destroy()
 		end
 	end
 
