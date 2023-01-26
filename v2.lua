@@ -53,7 +53,7 @@ TabBox:AddToggle('loopkill', {
 	Tooltip = "(not working due to the developer being lazy)",
 })
 
-TabBox:AddButton('unload', function() Library:Unload() end)
+TabBox:AddButton('unload', function() Library.Unloaded = true end)
 
 TabBox2 = Main:AddRightGroupbox('Player')
 
@@ -76,7 +76,7 @@ TabBox2:AddInput('walkspeed', {
 
 Options.walkspeed:OnChanged(function()
 	if Toggles.speed.Value then
-		local walkspeed : NumberValue = getchar().StaminaValues.WalkSpeed
+		local walkspeed = getchar().StaminaValues.WalkSpeed
 		--local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
 		walkspeed.Value = Options.walkspeed.Value
 		--runspeed.Value = Options.walkspeed.Value
@@ -97,7 +97,7 @@ TabBox2:AddInput('runspeed', {
 Options.runspeed:OnChanged(function()
 	if Toggles.speed.Value then
 		--local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
-		local runspeed : NumberValue = getchar().StaminaValues.RunSpeed
+		local runspeed = getchar().StaminaValues.RunSpeed
 		--walkspeed.Value = Options.walkspeed.Value
 		runspeed.Value = Options.walkspeed.Value
 	end
@@ -115,11 +115,14 @@ TabBox2:AddInput('jumppower', {
 })
 
 Options.jumppower:OnChanged(function()
-	if getchar():FindFirstChildOfClass("Humanoid")  and Toggles.speed.Value then
+	if getchar():FindFirstChild("Humanoid")  and Toggles.speed.Value then
+		local hum = getchar():FindFirstChild('Humanoid')
+
 		if Options.jumppower.Value == (-1) then
-			getchar():FindFirstChildOfClass("Humanoid").JumpPower = 50
+			hum.JumpPower = 50
 		end
-		getchar():FindFirstChildOfClass("Humanoid").JumpPower = Options.jumppower.Value
+		
+		hum.JumpPower = Options.jumppower.Value
 	end
 end)
 
@@ -135,10 +138,6 @@ local antiKick; antiKick = hookmetamethod(game, "__namecall", function(self, ...
 	end
 	
 	return antiKick(self, unpack(args))
-end)
-
-Library:OnUnload(function()
-	Library.Unloaded = true
 end)
 
 while task.wait() do
