@@ -75,7 +75,7 @@ TabBox2:AddInput('walkspeed', {
 })
 
 Options.walkspeed:OnChanged(function()
-	if getchar() and Toggles.speed.Value then
+	if Toggles.speed.Value then
 		local walkspeed : NumberValue = getchar().StaminaValues.WalkSpeed
 		--local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
 		walkspeed.Value = Options.walkspeed.Value
@@ -109,14 +109,14 @@ TabBox2:AddInput('jumppower', {
 	Finished = true,
 
 	Text = 'Jumppower',
-	Tooltip = 'you go weee',
+	Tooltip = 'you go weee (use -1 to reset)',
 
 	Placeholder = 'the amount of jumppower real',
 })
 
 Options.jumppower:OnChanged(function()
 	if getchar():FindFirstChildOfClass("Humanoid")  and Toggles.speed.Value then
-		if Options.jumppower.Value == 0 then
+		if Options.jumppower.Value == (-1) then
 			getchar():FindFirstChildOfClass("Humanoid").JumpPower = 50
 		end
 		getchar():FindFirstChildOfClass("Humanoid").JumpPower = Options.jumppower.Value
