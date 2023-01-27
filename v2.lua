@@ -132,7 +132,6 @@ local antiKick; antiKick = hookmetamethod(game, "__namecall", function(self, ...
 	
 	if (method == "Kick" or method == "kick") and self == plr then
 		if Toggles.noac.Value == true and Library.Unloaded ~= nil then
-			print("anti kick disabler best")
 			return wait(math.huge);
 		end
 	end
@@ -148,20 +147,28 @@ while task.wait() do
 	game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
 	
 	if Toggles.noac.Value == true then
-		if getchar():FindFirstChild('ANTIEXPLOIT') then
-			getchar():FindFirstChild('ANTIEXPLOIT'):Destroy()
+		local antiexploit = getchar():FindFirstChild('ANTIEXPLOIT')
+
+		if antiexploit then
+			antiexploit:Destroy()
 		end
 	end
 
 	if Toggles.infrun.Value == true then
-		if getchar():FindFirstChild('StaminaValues') and getchar().StaminaValues:FindFirstChild('Stamina') then
-			getchar().StaminaValues.Stamina.Value = 200
+		local staminavalues = getchar():FindFirstChild('StaminaValues')
+		local stamina = staminavalues:FindFirstChild('Stamina')
+
+		if staminavalues and stamina then
+			stamina.Value = 200
 		end
 	end
 
 	if Toggles.alwayrun.Value == true then
-		if getchar():FindFirstChild('StaminaValues') and getchar():FindFirstChild('CanRun') then
-			getchar().StaminaValues.CanRun.Value = true
+		local staminavalues = getchar():FindFirstChild('StaminaValues')
+		local canrun = staminavalues:FindFirstChild('CanRun')
+
+		if staminavalues and canrun then
+			canrun.Value = 200
 		end
 	end
 end
