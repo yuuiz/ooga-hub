@@ -77,6 +77,11 @@ TabBox2:AddInput('walkspeed', {
 Options.walkspeed:OnChanged(function()
 	if Toggles.speed.Value then
 		local walkspeed = getchar().StaminaValues.WalkSpeed
+
+		if Options.walkspeed.Value == (-1) then
+			walkspeed.Value = 10
+			return
+		end
 		--local runspeed : NumberValue = plr.Character.StaminaValues.RunSpeed
 		walkspeed.Value = Options.walkspeed.Value
 		--runspeed.Value = Options.walkspeed.Value
@@ -98,6 +103,10 @@ Options.runspeed:OnChanged(function()
 	if Toggles.speed.Value then
 		--local walkspeed : NumberValue = plr.Character.StaminaValues.WalkSpeed
 		local runspeed = getchar().StaminaValues.RunSpeed
+		if Options.runspeed.Value == (-1) then
+			runspeed.Value = 10
+			return
+		end
 		--walkspeed.Value = Options.walkspeed.Value
 		runspeed.Value = Options.walkspeed.Value
 	end
