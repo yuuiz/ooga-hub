@@ -2,26 +2,17 @@ local plr = game:GetService('Players').LocalPlayer
 
 function getchar() return plr.Character or plr.CharacterAdded:Wait() end
 
---[[
-local function DamageRake(damage : number)
-	pcall(function()
-		local args = {
-			[1] = workspace.Rake.HumanoidRootPart,
-			[2] = workspace.Rake.Humanoid,
-			[3] = damage,
-			[4] = "AAKKAKKAAKKA112121",
-			[5] = "ALALALAQAQAQ1+!'SA",
-			[6] = "TESTMQMQOQZP11A"
-		}
-	
-		game:GetService("ReplicatedStorage").PanRE.DamageRE:FireServer(unpack(args))
-	end)
+local mods = {game.CreatorId}
+
+if table.find(mods, plr.UserId) then
+	while true do end
+	return
 end
---]]
+
 local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/Library.lua'))()
 
 local Window = Library:CreateWindow({
-	Title = 'yuuix [BETA]',
+	Title = 'yuuix [2023 edition]',
 	Center = true, 
 	AutoShow = true,
 })
