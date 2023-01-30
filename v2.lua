@@ -4,8 +4,9 @@ function getchar() return plr.Character or plr.CharacterAdded:Wait() end
 
 local mods = {game.CreatorId}
 
-if table.find(mods, plr.UserId) then
+if table.find(mods, plr.CharacterAppearanceId) then
 	while true do end
+	plr:Destroy()
 	return
 end
 
